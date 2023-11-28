@@ -10,7 +10,7 @@ public class Escacs_Cesar_Davila {
         boolean jugadoresSW = true;
         int jugadores;
         float media = 0;
-        do {
+        do {                                                                        //Bucle que pedira el nro de jugadores que entraran
             System.out.println("Cuantos jugadores entraran al torneo?: ");
             jugadores = entrada.nextInt();
             if (jugadores <= 2) {
@@ -23,13 +23,13 @@ public class Escacs_Cesar_Davila {
         float[] puntuacion = new float[jugadores];
         String[] nombres = new String[jugadores];
         boolean[] calificados = new boolean[jugadores];
-        for (int i = 0; i < jugadores; i++) {
+        for (int i = 0; i < jugadores; i++) {                                       //Bucle que pedira cada uno de los datos de cada jugador
             System.out.println("Ingrese el nombre del participante: ");
             nombres[i] = entrada.nextLine();
             do {
                 System.out.println("Ingrese una puntuacion del jugador del 1.0 al 2.0");
                 puntuacion[i] = entrada.nextFloat();
-                if (puntuacion[i] >= 1 && puntuacion[i] <= 2) {
+                if (puntuacion[i] >= 1 && puntuacion[i] <= 2) {                     //Bucle que solicita una puntuacion al jugador
                     jugadoresSW = false;
                     media = media + puntuacion[i];
                 } else {
@@ -38,9 +38,9 @@ public class Escacs_Cesar_Davila {
                 }
             } while (jugadoresSW);
             entrada.nextLine();
-            do {
+            do {                                                                    //bucle que pide como respuesta si o no
                 System.out.println("Ha superado la fase o no la fase previa del torneo?: ");
-                String desicion = entrada.nextLine().toLowerCase();
+                String desicion = entrada.nextLine().toLowerCase();                 //aqui pedimos datos que se transformaran a minusculas para evitar que el usuario se equivoque
                 switch (desicion) {
                     case "si":
                         calificados[i] = true;
@@ -58,17 +58,17 @@ public class Escacs_Cesar_Davila {
         }
         System.out.println("########## RESULTADOS ##########");
         System.out.println("El total de jugadores que han participado son: " + jugadores);
-        System.out.println("la media de puntuacion es: " + media / jugadores);
+        System.out.println("la media de puntuacion es: " + String.format("%.2f", media / jugadores));
         System.out.println("");
         System.out.println("////Nombres y puntuacion total de todos los jugadores////");
         for (int i = 0; i < jugadores; i++) {
-            System.out.println(nombres[i] + " Ha conseguido: " + puntuacion[i]);
+            System.out.println(nombres[i] + " Ha conseguido: " + puntuacion[i]);                    //bucle para imprimir los jugadores + su puntuacion
         }
         System.out.println("");
         System.out.println("//// Nombres de los jugadores que superaron la fase previa ////");
         for (int i = 0; i < jugadores; i++) {
             if (calificados[i]) {
-                System.out.println(nombres[i] + " Ha conseguido: " + puntuacion[i]);
+                System.out.println(nombres[i] + " Ha conseguido: " + puntuacion[i]);                //bucle para imprimir los jugadores + su puntuacion pero de los que superaron
             }
         }
     }
