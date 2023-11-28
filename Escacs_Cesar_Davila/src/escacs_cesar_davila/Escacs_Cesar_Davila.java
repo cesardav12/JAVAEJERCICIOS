@@ -9,7 +9,6 @@ public class Escacs_Cesar_Davila {
         Scanner entrada = new Scanner(System.in);
         boolean jugadoresSW = true;
         int jugadores;
-        int count = 0;
         float media = 0;
         do {
             System.out.println("Cuantos jugadores entraran al torneo?: ");
@@ -24,15 +23,15 @@ public class Escacs_Cesar_Davila {
         float[] puntuacion = new float[jugadores];
         String[] nombres = new String[jugadores];
         boolean[] calificados = new boolean[jugadores];
-        do {
+        for (int i = 0; i < jugadores; i++) {
             System.out.println("Ingrese el nombre del participante: ");
-            nombres[count] = entrada.nextLine();
+            nombres[i] = entrada.nextLine();
             do {
                 System.out.println("Ingrese una puntuacion del jugador del 1.0 al 2.0");
-                puntuacion[count] = entrada.nextFloat();
-                if (puntuacion[count] >= 1 && puntuacion[count] <= 2) {
+                puntuacion[i] = entrada.nextFloat();
+                if (puntuacion[i] >= 1 && puntuacion[i] <= 2) {
                     jugadoresSW = false;
-                    media = media + puntuacion[count];
+                    media = media + puntuacion[i];
                 } else {
                     System.out.println("ERROR ingrese una puntuacion correcta");
                     jugadoresSW = true;
@@ -44,11 +43,11 @@ public class Escacs_Cesar_Davila {
                 String desicion = entrada.nextLine().toLowerCase();
                 switch (desicion) {
                     case "si":
-                        calificados[count] = true;
+                        calificados[i] = true;
                         jugadoresSW = false;
                         break;
                     case "no":
-                        calificados[count] = false;
+                        calificados[i] = false;
                         jugadoresSW = false;
                         break;
                     default:
@@ -56,11 +55,10 @@ public class Escacs_Cesar_Davila {
                         jugadoresSW = true;
                 }
             } while (jugadoresSW);
-            count++;
-        } while (count < jugadores);
+        }
         System.out.println("########## RESULTADOS ##########");
         System.out.println("El total de jugadores que han participado son: " + jugadores);
-        System.out.println("la media de puntuacion es: " + media/jugadores);
+        System.out.println("la media de puntuacion es: " + media / jugadores);
         System.out.println("");
         System.out.println("////Nombres y puntuacion total de todos los jugadores////");
         for (int i = 0; i < jugadores; i++) {

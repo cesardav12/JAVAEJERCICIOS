@@ -7,6 +7,7 @@ public class T3Ejercicio18 {
         Scanner entrada = new Scanner (System.in);
         System.out.println("Ingrese una frase: ");
         String text = entrada.nextLine();
-        System.out.println(text.replace(" ", "\n""));
+        text = text.replace(" ", "\n");
+        System.out.println(text);
     }
 }
