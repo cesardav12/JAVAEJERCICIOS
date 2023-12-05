@@ -24,7 +24,7 @@ public class Escacs_Cesar_Davila {
         String[] nombres = new String[jugadores];
         boolean[] calificados = new boolean[jugadores];
         for (int i = 0; i < jugadores; i++) {                                       //Bucle que pedira cada uno de los datos de cada jugador
-            System.out.println("Ingrese el nombre del participante: ");
+            System.out.println("Ingrese el nombre del participante #" + (i + 1) + ": ");
             nombres[i] = entrada.nextLine();
             do {
                 System.out.println("Ingrese una puntuacion del jugador del 1.0 al 2.0");
