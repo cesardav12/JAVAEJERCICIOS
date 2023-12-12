@@ -15,7 +15,7 @@ public class Ejercicio4 {
                 System.out.println("Ingrese la nota del estudiante #" + (i + 1));
                 notas[i][j] = entrada.nextFloat();
                 media += notas[i][j];
-                if (notas[i][j] == 0) {
+                if (minima == 0 && maxima == 0) {
                     maxima = notas[i][j];
                     minima = notas[i][j];
                 }
@@ -25,7 +25,8 @@ public class Ejercicio4 {
                     minima = notas[i][j];
                 }
             }
-            System.out.println("Media es: " + media/ + "\nMaxima: " + maxima + "\nMinima: " + minima);
+            System.out.println("Alumno #" + (i+1));
+            System.out.println("Media es: " + media/notas[i].length + "\nMaxima: " + maxima + "\nMinima: " + minima);
         }
     }
 }
